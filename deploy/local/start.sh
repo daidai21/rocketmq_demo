@@ -22,6 +22,12 @@ chmod -R 777 ./rmqs/store
 chmod -R 777 ./rmq/logs
 chmod -R 777 ./rmq/store
 
+# 更新本地IP
+HOST_IP=$(ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:" | head -n 1)
+echo $HOST_IP
+sed -i -e "s/^brokerIP1=.*/brokerIP1=${HOST_IP}/" broker.conf
+rm broker.conf-e
+
 # 下载并启动容器，且为 后台 自动启动
 docker-compose up -d
 

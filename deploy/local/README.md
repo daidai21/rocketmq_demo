@@ -8,6 +8,8 @@
 
 控制台[地址](http://localhost:8180/#/)
 
+注意： `broker.conf`中的`brokerIP1`每次都要改为本机的IP才行
+
 ### ref
 
 * https://github.com/foxiswho/docker-rocketmq
