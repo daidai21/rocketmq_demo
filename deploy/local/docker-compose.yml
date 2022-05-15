@@ -26,7 +26,7 @@ services:
     volumes:
       - ./rmq/logs:/home/rocketmq/logs
       - ./rmq/store:/home/rocketmq/store
-      - ./rmq/broker.conf:/etc/rocketmq/broker.conf  # 挂载配置
+      - ./broker.conf:/etc/rocketmq/broker.conf  # 挂载配置
     environment:
       JAVA_OPT_EXT: "-Duser.home=/home/rocketmq -Xms512M -Xmx512M -Xmn128m"
     command: [ "sh","mqbroker","-c","/etc/rocketmq/broker.conf","-n","rmqnamesrv:9876","autoCreateTopicEnable=true" ]
