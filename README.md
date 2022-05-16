@@ -26,9 +26,10 @@
     * 消费不丢失： 消息重试
 * 死信队列
 * 回溯消费
-* 批量消息
-    * 发送
-    * 消费
+* [批量消息](./demos/batch_msg/)
+    * [批量发送消息](./demos/batch_msg/src/main/java/com/example/demo/BatchSendMsgProducer.java)
+    * [消息切分发送](./demos/batch_msg/src/main/java/com/example/demo/BatchSendSplitMsgListProducer.java)
+    * [批量消费消息](./demos/batch_msg/src/main/java/com/example/demo/BatchReceiverMsgConsumer.java)
 * 过滤消息
 * 事务消息
 * 日志格式
