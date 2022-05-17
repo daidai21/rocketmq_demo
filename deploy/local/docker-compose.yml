@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   rmqnamesrv:
-    image: foxiswho/rocketmq:4.8.0
+    image: apache/rocketmq:4.9.3
     container_name: rmqnamesrv
     ports:
       - "9876:9876"
@@ -18,7 +18,7 @@ services:
           - rmqnamesrv
 
   rmqbroker:
-    image: foxiswho/rocketmq:4.8.0
+    image: apache/rocketmq:4.9.3
     container_name: rmqbroker
     ports:
       - "10909:10909"
