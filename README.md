@@ -30,10 +30,15 @@
     * [批量发送消息](./demos/batch_msg/src/main/java/com/example/demo/BatchSendMsgProducer.java)
     * [消息切分发送](./demos/batch_msg/src/main/java/com/example/demo/BatchSendSplitMsgListProducer.java)
     * [批量消费消息](./demos/batch_msg/src/main/java/com/example/demo/BatchReceiverMsgConsumer.java)
-* 过滤消息
+* [过滤消息](./demos/filter_msg/)
+    * [消息打tag发送](./demos/filter_msg/src/main/java/com/example/demo/SendMsgByTagProducer.java)
+    * [过滤tag接收消息](./demos/filter_msg/src/main/java/com/example/demo/ReceiverMsgByFilterTagConsumer.java)
+    * [消息打属性发送](./demos/filter_msg/src/main/java/com/example/demo/SendMsgByPropertyProducer.java)
+    * [过滤属性接收消息](./demos/filter_msg/src/main/java/com/example/demo/ReceiverMsgByFilterPropertyConsumer.java)
 * 事务消息
 * 日志格式
 
 ### ref
 
 * https://github.com/apache/rocketmq/blob/master/docs/cn/RocketMQ_Example.md
+* https://help.aliyun.com/document_detail/29543.html
