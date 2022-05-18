@@ -1,6 +1,6 @@
 # rmq demo
 
-本地docker 启动
+本地docker 启动。MQ简单逻辑后续其实可以做在FaaS中，支持弹性扩缩容。
 
 ### deploy
 
@@ -44,8 +44,22 @@
     * [过滤tag接收消息](./demos/filter_msg/src/main/java/com/example/demo/ReceiverMsgByFilterTagConsumer.java)
     * [消息打属性发送](./demos/filter_msg/src/main/java/com/example/demo/SendMsgByPropertyProducer.java)
     * [过滤属性接收消息](./demos/filter_msg/src/main/java/com/example/demo/ReceiverMsgByFilterPropertyConsumer.java)
-* 事务消息
-* 日志格式
+* [ ] 事务消息
+* [ ] 日志格式
+* [ ] OMS(OpenMessaging)
+
+### abstract biz framework
+
+**Feature：**
+1. 告警监控
+2. producer/consumer 支持重试
+3. 多次重试失败支持存储到DB
+4. 支持切面对业务代码无侵入添加逻辑
+5. 自动分区sharding队列
+
+TODO: 待完善
+
+这里以RMQ为例，应当也无缝切换支持kafka。
 
 ### ref
 
