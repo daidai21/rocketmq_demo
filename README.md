@@ -22,12 +22,19 @@
         * [分区顺序](./demos/order_msg/src/main/java/com/example/demo/MultiQueueOrderConsumer.java)： 通过一个消费线程对应一个queue
         * [BadCase](./demos/order_msg/src/main/java/com/example/demo/OneTopicMultiQueueConsumer.java)
 * [延迟消息](./demos/delay_msg/src/main/java/com/example/demo)
-* 消息可靠性
-    * 发送不丢失： 消息重投
-    * 存储不丢失 这里不管
-    * 消费不丢失： 消息重试
-* 死信队列
-* 回溯消费
+* [消息可靠性](./demos/lose_msg)
+    * 发送不丢失： [消息重投](./demos/lose_msg/src/main/java/com/example/demo/ResendProducer.java)
+    * 存储不丢失： 这里不管，总结下broker的可靠性如何保证就行
+    * 消费不丢失： [消息重试](./demos/lose_msg/src/main/java/com/example/demo/RetryConsumer.java)
+* [死信队列](./demos/lose_msg)
+* 回溯消费: [link1](./demos/order_msg/src/main/java/com/example/demo/MultiQueueOrderConsumer.java)
+```text
+* enum org.apache.rocketmq.common.consumer.ConsumeFromWhere
+    CONSUME_FROM_LAST_OFFSET: 从最后的偏移量开始消费
+    CONSUME_FROM_FIRST_OFFSET：从最小偏移量开始消费
+    CONSUME_FROM_TIMESTAMP：从某个时间开始消费 
+* 控制台 -> topic -> 重置消费位点 -> 设置 订阅组 和 时间点 -> 提交即可
+```
 * [批量消息](./demos/batch_msg)
     * [批量发送消息](./demos/batch_msg/src/main/java/com/example/demo/BatchSendMsgProducer.java)
     * [消息切分发送](./demos/batch_msg/src/main/java/com/example/demo/BatchSendSplitMsgListProducer.java)
