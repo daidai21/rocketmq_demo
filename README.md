@@ -44,8 +44,15 @@
     * [过滤tag接收消息](./demos/filter_msg/src/main/java/com/example/demo/ReceiverMsgByFilterTagConsumer.java)
     * [消息打属性发送](./demos/filter_msg/src/main/java/com/example/demo/SendMsgByPropertyProducer.java)
     * [过滤属性接收消息](./demos/filter_msg/src/main/java/com/example/demo/ReceiverMsgByFilterPropertyConsumer.java)
-* [ ] 事务消息
-* [ ] 日志格式
+* [事务消息](./demos/transaction_msg)
+```text
+三个服务： 商品服务、订单服务、用户积分服务。
+用户创单后，就算商品库存没有正常扣减、用户积分没有对应增加 也不管了，保证用户下单时候的核心事务执行成功就行，后续再进行商品库存扣减和用户积分增加修复， 最大限度地保证下单成功。
+用于： 核心事务和非核心事务解耦（不能说用户积分服务异常就导致用户无法创单）
+```
+![transaction_msg](./imgs/transaction_msg.png)
+![transaction_msg_vs](./imgs/transaction_msg_vs.png)
+* 日志格式 (cutoff)
 * [ ] OMS(OpenMessaging)
 
 ### abstract biz framework
