@@ -46,3 +46,4 @@ itemId=1有10个库存，itemId=2有0个库存。
 * [基于RocketMQ分布式事务 - 完整示例](https://zhuanlan.zhihu.com/p/115553176)
 * [事务消息](https://help.aliyun.com/document_detail/43348.html)
 * https://github.com/apache/rocketmq/blob/master/docs/cn/RocketMQ_Example.md#6-%E6%B6%88%E6%81%AF%E4%BA%8B%E5%8A%A1%E6%A0%B7%E4%BE%8B
+* https://github.com/hosaos/transaction-message-demo
