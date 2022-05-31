@@ -5,3 +5,4 @@ broker.conf/
 *.iml
 target/
 out/
+.DS_Store
