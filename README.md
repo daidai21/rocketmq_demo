@@ -52,8 +52,46 @@
 ```
 ![transaction_msg](./imgs/transaction_msg.png)
 ![transaction_msg_vs](./imgs/transaction_msg_vs.png)
-* 日志格式 (cutoff)
+* [cutoff] 日志格式
 * [ ] OMS(OpenMessaging)
+* 消息轨迹
+```java
+new DefaultMQProducer("ProducerGroupName",true);
+new DefaultMQPushConsumer("CID_JODIE_1",true);
+
+// 指一条消息从生产者发送到消息队列RocketMQ版服务端，再到消费者消费，整个过程中的各个相关节点的时间、状态等数据汇聚而成的完整链路信息。
+// 类似traceId排查问题用的
+```
+* 优化消费速度
+```txt
+* 提高消费并行度
+    * 加机器
+    * 多线程 consumeThreadMin、consumeThreadMax
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("topic_name");
+        consumer.setConsumeThreadMax(100); // 默认是20
+        consumer.setConsumeThreadMax(50); // 默认是20
+* 批量方式消费
+    DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("topic_name");
+    consumer.setConsumeMessageBatchMaxSize(10); // 默认是1
+* 跳过非重要消息
+    consumer.registerMessageListener(new MessageListenerConcurrently() {
+        @Override
+        public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> messages, ConsumeConcurrentlyContext context) {
+            long offset = messages.get(0).getQueueOffset();
+            String maxOffset = messages.get(0).getProperty(MessageConst.PROPERTY_MAX_OFFSET);
+            long diff = Long.parseLong(maxOffset) - offset;
+            if (diff > 100000) {
+                // 消息堆积情况的特殊处理...
+                return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+            }
+            // 正常消费过程...
+            return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+        }
+    }
+* 优化每条消息消费过程
+```
+* [ ] [轻消息队列](./demos/lmq_msg)
+* [ ] [消息幂等](./demos/idempotent_msg)
 
 ### abstract biz framework
 
