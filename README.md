@@ -91,7 +91,7 @@ new DefaultMQPushConsumer("CID_JODIE_1",true);
 * 优化每条消息消费过程
 ```
 * [轻消息队列](./demos/lmq_msg)
-* [ ] [消息幂等](./demos/idempotent_msg)
+* [消息幂等](./demos/idempotent_msg)
 
 ### abstract biz framework
 
