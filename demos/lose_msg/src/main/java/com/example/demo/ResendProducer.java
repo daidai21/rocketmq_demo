@@ -39,14 +39,11 @@ public class ResendProducer {
             System.out.println(String.format("SendResult status:%s, queueId:%d, body:%s",
                     sendResult.getSendStatus(), sendResult.getMessageQueue().getQueueId(), msg));
 
-            // 重试发送
-            // TODO
+            // 重试发送...
 
-            // 监控告警
-            // TODO
+            // 监控告警...
 
-            // 保存到DB
-            // TODO
+            // 保存到DB...
 
         }
 
