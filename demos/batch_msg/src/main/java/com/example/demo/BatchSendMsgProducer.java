@@ -10,7 +10,7 @@ import java.util.List;
 public class BatchSendMsgProducer {
     public static void main(String[] args) throws MQClientException {
         // 实例化一个生产者来产生延时消息
-        DefaultMQProducer producer = new DefaultMQProducer("batch_msg");
+        DefaultMQProducer producer = new DefaultMQProducer("batch_msg"); // producerGroup:batch_msg
         // 设置NameServer的地址
         producer.setNamesrvAddr("localhost:9876");
         // 启动生产者
@@ -18,7 +18,7 @@ public class BatchSendMsgProducer {
 
         String topic = "batch_msg";
         List<Message> messages = new ArrayList<>();
-        messages.add(new Message(topic, "TagA", "OrderID001", "Hello world 0".getBytes()));
+        messages.add(new Message(topic, "TagA", "OrderID001", "Hello world 0".getBytes())); // topic;  tags:TagA;  body
         messages.add(new Message(topic, "TagA", "OrderID002", "Hello world 1".getBytes()));
         messages.add(new Message(topic, "TagA", "OrderID003", "Hello world 2".getBytes()));
         try {

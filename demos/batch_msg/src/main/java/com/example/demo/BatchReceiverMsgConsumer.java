@@ -13,11 +13,11 @@ public class BatchReceiverMsgConsumer {
 
     public static void main(String[] args) throws MQClientException {
         // 实例化消费者
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("batch_msg");
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("batch_msg"); // consumerGroup:batch_msg
         // 设置NameServer的地址
         consumer.setNamesrvAddr("localhost:9876");
         // 订阅Topics
-        consumer.subscribe("batch_send_msg_split", "*");
+        consumer.subscribe("batch_send_msg_split", "*"); // topic:batch_send_msg_split;  subExpression:*
         // 设置批量消费数量
         consumer.setConsumeMessageBatchMaxSize(3);
 

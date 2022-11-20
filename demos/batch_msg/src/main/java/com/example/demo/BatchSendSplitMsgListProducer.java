@@ -31,7 +31,7 @@ public class BatchSendSplitMsgListProducer {
 
     public BatchSendSplitMsgListProducer() throws MQClientException {
         // 实例化一个生产者来产生延时消息
-        producer = new DefaultMQProducer("batch_msg");
+        producer = new DefaultMQProducer("batch_msg"); // producerGroup:batch_msg
         // 设置NameServer的地址
         producer.setNamesrvAddr("localhost:9876");
         // 启动生产者
