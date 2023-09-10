@@ -40,6 +40,9 @@
     * [消息切分发送](./demos/batch_msg/src/main/java/com/example/demo/BatchSendSplitMsgListProducer.java)
     * [批量消费消息](./demos/batch_msg/src/main/java/com/example/demo/BatchReceiverMsgConsumer.java)
 * [过滤消息](./demos/filter_msg)
+    ```text
+    中台的业务消息不好限速，会收到别的业务方消息，消费限速高了容易调下游超过重试次数丢数据，限速低了容易引起消息堆积，可以通过Tag or 属性来只消费自己场景的消息，消息消费均速化。
+    ```
     * [消息打tag发送](./demos/filter_msg/src/main/java/com/example/demo/SendMsgByTagProducer.java)
     * [过滤tag接收消息](./demos/filter_msg/src/main/java/com/example/demo/ReceiverMsgByFilterTagConsumer.java)
     * [消息打属性发送](./demos/filter_msg/src/main/java/com/example/demo/SendMsgByPropertyProducer.java)
