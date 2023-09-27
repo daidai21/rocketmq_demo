@@ -96,6 +96,18 @@ new DefaultMQPushConsumer("CID_JODIE_1",true);
 * [轻消息队列](./demos/lmq_msg)
 * [消息幂等](./demos/idempotent_msg)
 * [一个生产者对应多个topic，一个消费者对应多个topic](./demos/multi_topic_msg)
+* 消费限速：
+    * [Sentinel 为 Apache RocketMQ 保驾护航](https://sentinelguard.io/zh-cn/blog/sentinel-flow-sentinel-of-rocketmq.html)
+    * 消费者参数控制消费速度 （但是只能控制单实例的）：
+        * 总的消费最大QPS = 实例数量 * setPullBatchSize * setConsumeThreadMax / setPullInterval * 1000
+    ```java
+    DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("batch_msg"); // consumerGroup:batch_msg
+    consumer.setConsumeMessageBatchMaxSize(1); // 调用MessageListener处理的地方一次传入List<MessageExt>的数量
+    consumer.setPullBatchSize(1); // 一次从Broker的一个Message Queue获取消息的数量（默认32个）
+    consumer.setConsumeThreadMax(1); // consumer最大线程数
+    consumer.setConsumeThreadMin(1); // consumer最小线程数
+    consumer.setPullInterval(1000); // // 每次拉取的间隔，单位为毫秒
+    ```
 
 ### abstract biz framework
 
